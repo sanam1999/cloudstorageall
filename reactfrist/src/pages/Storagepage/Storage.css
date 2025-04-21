@@ -1,0 +1,167 @@
+
+.storage-container {
+    max-width: 1000px;
+    margin: 20px auto;
+   
+    border-radius: 8px;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    color: #fff;
+  }
+  
+  
+  .file-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  .file-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  
+  .file-item:hover {
+    background: #333;
+  }
+  
+  
+  .file-icon {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  
+  
+  .file-info .file-name {
+    font-size: 16px;
+    color: white;
+
+  }
+  
+
+
+
+  
+.file-container {
+    width: 50%;
+
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  
+  .file-item {
+    
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  
+  .file-info {
+    flex: 1;
+    margin-left: 1rem;
+  }
+  
+  .file-name {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .file-modified {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  
+  .menu-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+  }
+  
+  .menu-button:hover {
+color: rgb(255, 0, 0);
+  }
+  
+  
+  .menu-dropdown {
+
+    right: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  
+  .delete-button {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    background: none;
+    border: none;
+    color: #ff4d4f;
+    cursor: pointer;
+    text-align: left;
+  }
+  
+  .delete-button:hover {
+    background-color: #3b3b3b;
+  }
+
+
+
+
+  .imageview{
+    position: fixed;
+    width: 50rem;
+
+    height: 50rem;
+    right: 2rem;
+    top: 5rem;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .imageview img {
+    display: block; 
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    object-fit: cover; 
+    margin: 0 auto; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.imageview img:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.smalimage{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.smalimage img{
+   width: 100%;
+   height: 100%;
+   text-align: center;
+}
+
+.empty{
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1.3rem;
+
+}

@@ -1,0 +1,119 @@
+/* General Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  background: #2c3e50;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  color: #ecf0f1;
+}
+
+.button {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background: #2980b9;
+}
+
+.button-danger {
+  background: #e74c3c;
+}
+
+.button-danger:hover {
+  background: #c0392b;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #34495e;
+  background: #34495e;
+  color: #ecf0f1;
+}
+
+.input::placeholder {
+  color: rgba(236, 240, 241, 0.7);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table th, .table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #34495e;
+}
+
+.table th {
+  background: #34495e;
+  color: #ecf0f1;
+}
+
+.table tr:hover {
+  background: #34495e;
+}
+
+.apikeys {
+  max-width: 10rem;
+  min-width: 10rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.names {
+  max-width: 10%;
+  min-width: 10%;
+}
+
+/* Flexbox for inline alignment */
+.addapikey {
+  display: flex;
+  align-items: center; /* Vertically center the items */
+  gap: 10px; /* Add spacing between the items */
+}
+
+.addapikey input {
+  flex: 1; /* Allow the input to grow and take up remaining space */
+  margin: 0; /* Remove default margin */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .button {
+    padding: 8px 16px;
+  }
+
+  .input {
+    padding: 8px;
+  }
+
+  .table th, .table td {
+    padding: 8px;
+  }
+}

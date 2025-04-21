@@ -1,0 +1,392 @@
+/* From Uiverse.io by joe-watson-sbf */ 
+.flip-card {
+    background-color: transparent;
+    width: 390px;
+    height: 454px;
+    perspective: 1000px;
+    font-family: sans-serif;
+  }
+
+  .flip-card *{
+    color: white !important;
+  }
+  
+  .title {
+    font-size: 1.5em;
+    font-weight: 900;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-front, .flip-card-back {
+    box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 1rem;
+  }
+  
+  .flip-card-front {
+    background: linear-gradient(120deg, rgb(125, 101, 101) 60%, rgb(80, 136, 91) 88%,
+       rgb(67, 75, 127) 40%, rgba(160, 148, 143, 0.603) 48%);
+    color: rgb(255, 255, 255);
+  }
+  
+  .flip-card-back {
+    background: linear-gradient(120deg, rgb(61, 61, 61) 30%, rgb(60, 49, 82) 88%,
+       rgb(115, 115, 115) 40%, rgb(255, 185, 160) 78%);
+    color: white;
+    transform: rotateY(180deg);
+  }
+
+  .contener{
+    display: flex;
+    width: 90%;
+    gap: 2rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 15rem;
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+
+  }
+
+
+
+  /* button  */
+
+
+  /* From Uiverse.io by Nawsome */ 
+/*bg*/
+/*txt*/
+/*success*/
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    top: 20px;
+    left: 20px;
+  }
+  
+  .buttons button {
+    width: 150px;
+    height: 50px;
+    background-color: rgb(63, 61, 61);
+    margin: 20px;
+    color: #568fa6;
+    position: relative;
+    overflow: hidden;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+  }
+  
+  .buttons button:before, .buttons button:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #424242;
+    transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+  }
+  
+  .buttons button:before {
+    right: 0;
+    top: 0;
+    transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+  }
+  
+  .buttons button:after {
+    left: 0;
+    bottom: 0;
+  }
+  
+  .buttons button span {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+  }
+  
+  .buttons button span:before, .buttons button span:after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 0;
+    background-color: #aaaaaa;
+    transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+  }
+  
+  .buttons button span:before {
+    right: 0;
+    top: 0;
+    transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+  }
+  
+  .buttons button span:after {
+    left: 0;
+    bottom: 0;
+  }
+  
+  .buttons button p {
+    padding: 0;
+    margin: 0;
+    transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .buttons button p:before, .buttons button p:after {
+    position: absolute;
+    width: 100%;
+    transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+    z-index: 1;
+    left: 0;
+  }
+  
+  .buttons button p:before {
+    content: attr(data-title);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .buttons button p:after {
+    content: attr(data-text);
+    top: 150%;
+    color: #d84444;
+  }
+  
+  .buttons button:hover:before, .buttons button:hover:after {
+    width: 100%;
+  }
+  
+  .buttons button:hover span {
+    z-index: 1;
+  }
+  
+  .buttons button:hover span:before, .buttons button:hover span:after {
+    height: 100%;
+  }
+  
+  .buttons button:hover p:before {
+    top: -50%;
+    transform: rotate(5deg);
+  }
+  
+  .buttons button:hover p:after {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .buttons button.start {
+    background-color: #ff0000;
+    box-shadow: 0px 5px 10px -10px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+  }
+  
+  .buttons button.start p:before {
+    top: -50%;
+    transform: rotate(5deg);
+  }
+  
+  .buttons button.start p:after {
+    color: white;
+    transition: all 0s ease;
+    content: attr(data-start);
+    top: 50%;
+    transform: translateY(-50%);
+    animation: start 0.3s ease;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes start {
+    from {
+      top: -50%;
+    }
+  }
+  
+  .buttons button.start:hover:before, .buttons button.start:hover:after {
+    display: none;
+  }
+  
+  .buttons button.start:hover span {
+    display: none;
+  }
+  
+  .buttons button:active {
+    outline: none;
+    border: none;
+  }
+  
+  .buttons button:focus {
+    outline: 0;
+  }
+
+
+  .panbox {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    height: 600px;
+    display: flex;
+   flex-direction: column;
+   text-align: center;
+   justify-content: space-around;
+    font-family: Arial, sans-serif;
+  }
+  
+  .panbox h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .panbox p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .paybtn {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .paybtn:hover {
+    background-color: #45a049;
+  }
+  
+
+  /* From Uiverse.io by vinodjangid07 */ 
+.card12{
+  width: 400px;
+  height: 280px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 30px;
+  gap: 13px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.062);
+}
+
+#cookieSvg {
+  width: 50px;
+}
+
+#cookieSvg g path {
+  fill: rgb(97, 81, 81);
+}
+
+.cookieHeading {
+  font-size: 1.2em;
+  font-weight: 800;
+  color: rgb(26, 26, 26);
+}
+
+.cookieDescription {
+  text-align: center;
+  font-size: 0.7em;
+  font-weight: 600;
+  color: rgb(99, 99, 99);
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+}
+
+.acceptButton {
+  width: 80px;
+  height: 30px;
+  background-color: #7b57ff;
+  transition-duration: .2s;
+  border: none;
+  color: rgb(241, 241, 241);
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+.declineButton {
+  width: 80px;
+  height: 30px;
+  background-color: rgb(218, 218, 218);
+  transition-duration: .2s;
+  color: rgb(46, 46, 46);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+.declineButton:hover {
+  background-color: #ebebeb;
+  transition-duration: .2s;
+}
+
+.acceptButton:hover {
+  background-color: #9173ff;
+  transition-duration: .2s;
+}
+
+.png{
+height: 3rem;
+}
+
+.paymentmain{
+position: fixed;
+top: 13rem;
+right: 39rem;
+}
+
+.buy12{
+
+position: fixed;
+top: 1rem;
+right: 1rem;
+background-color: rgb(24, 213, 84);
+border-radius: 7px;
+padding: 2px 10px;
+}

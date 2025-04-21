@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload & Delete Image</title>
+</head>
+<body>
+
+    <h1>Upload Image</h1>
+    <form id="uploadForm">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="imageInput">Image:</label>
+        <input type="file" id="imageInput" name="image" accept="image/*" required><br><br>
+
+        <button type="submit">Upload</button>
+    </form>
+
+    <div id="uploadResult"></div> <!-- Display Upload Message -->
+    <img id="previewImage" style="display: none; max-width: 300px; margin-top: 10px;" />
+
+    <h1>Delete Image</h1>
+    <form id="deleteForm">
+        <label for="url">Delete Image URL:</label>
+        <input type="text" id="url" name="url" required><br><br>
+
+        <button type="submit">Delete</button>
+    </form>
+
+    <div id="deleteResult"></div> <!-- Display Delete Message -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Load stored image URL if available
+            const storedImageUrl = localStorage.getItem("uploadedImageUrl");
+            if (storedImageUrl) {
+                document.getElementById("previewImage").src = storedImageUrl;
+                document.getElementById("previewImage").style.display = "block";
+                document.getElementById("uploadResult").innerHTML = `<p style="color: green;">Stored Image URL: <a href="${storedImageUrl}" target="_blank">${storedImageUrl}</a></p>`;
+            }
+        });
+
+        document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData();
+            formData.append('title', document.getElementById('title').value);
+            formData.append('image', document.getElementById('imageInput').files[0]);
+
+            try {
+                const response = await fetch('http://localhost:3000/uploadFile', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    const imageUrl = result.data.imageUrl;
+
+                    // Store URL in localStorage
+                    localStorage.setItem("uploadedImageUrl", imageUrl);
+
+                    // Update UI
+                    document.getElementById("uploadResult").innerHTML = `<p style="color: green;">Upload successful!<br>Image URL: <a href="${imageUrl}" target="_blank">${imageUrl}</a></p>`;
+                    document.getElementById("previewImage").src = imageUrl;
+                    document.getElementById("previewImage").style.display = "block";
+                } else {
+                    document.getElementById("uploadResult").innerHTML = `<p style="color: red;">Error: ${result.error}</p>`;
+                }
+            } catch (error) {
+                console.error('Error uploading image:', error);
+                document.getElementById("uploadResult").innerHTML = `<p style="color: red;">Upload failed. Please try again.</p>`;
+            }
+        });
+
+        document.getElementById('deleteForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const imageUrl = document.getElementById('url').value;
+
+            try {
+                const response = await fetch('http://localhost:3000/deleteImage', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ url: imageUrl }),
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    // Clear stored URL
+                    localStorage.removeItem("uploadedImageUrl");
+
+                    // Clear UI
+                    document.getElementById("deleteResult").innerHTML = `<p style="color: green;">Image deleted successfully</p>`;
+                    document.getElementById("previewImage").style.display = "none";
+                    document.getElementById("uploadResult").innerHTML = "";
+                } else {
+                    document.getElementById("deleteResult").innerHTML = `<p style="color: red;">Error: ${result.error}</p>`;
+                }
+            } catch (error) {
+                console.error('Error deleting image:', error);
+                document.getElementById("deleteResult").innerHTML = `<p style="color: red;">Delete failed. Please try again.</p>`;
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #121212;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*{
+  margin: 0;
+  padding:0;
+
+}
+.body{
+  min-height: 50rem;
+}
+
+.error{
+  position: fixed;
+  color: red;
+  z-index: 1000;
+  border-radius: 8px;
+  padding: 10px 20px;
+  border: solid red 1px;
+  background-color: rgb(45, 40, 40);
+  right: 5px;
+
+}
