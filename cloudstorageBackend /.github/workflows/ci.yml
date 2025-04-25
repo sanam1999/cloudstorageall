@@ -19,12 +19,12 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Install frontend dependencies
+    - name: Install Backend dependencies
       run: |
-        cd cloudstorageFrontend
+        cd cloudstorageBackend
         npm install
 
-    - name: Build frontend (Vite)
+    - name: Build Backend (Vite)
       run: |
-        cd cloudstorageFrontend
+        cd cloudstorageBackend
         npm run build

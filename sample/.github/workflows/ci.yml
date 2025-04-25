@@ -1,4 +1,4 @@
-name: Frontend Build
+name: Cloud storage
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  build-frontend:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,12 +19,17 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Install frontend dependencies
+    - name: Install backend dependencies
       run: |
-        cd cloudstorageFrontend
+        cd ..
         npm install
 
-    - name: Build frontend (Vite)
+    - name: Install backend dependencies
       run: |
-        cd cloudstorageFrontend
+        cd sample
+        npm install
+
+    - name: Build backend nodejs
+      run: |
+        cd sample
         npm run build
